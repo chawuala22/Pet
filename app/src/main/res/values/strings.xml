@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Pet</string>
+    <string name="app_name">Adottare</string>
     <string name="inscribir">Inscribirse</string>
     <string name="edad">Edad</string>
     <string name="datos_mascota">Datos mascota</string>
@@ -9,4 +9,7 @@
     <string name="direccion">Dirección</string>
     <string name="email">Correo electronico</string>
     <string name="ciudad_departamento">Ciudad/Departamento</string>
+    <string name="subir_foto">Sube una foto de tu mascota</string>
+    <string name="bienvenido">Hola, Bienvenido a Adottare</string>
+    <string name="caption">Aquí podras encontrar una mascota para ti!</string>
 </resources>
