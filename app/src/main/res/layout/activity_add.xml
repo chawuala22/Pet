@@ -109,9 +109,10 @@
                 android:layout_marginTop="20dp"
                 android:hint="@string/edad"
                 app:boxBackgroundMode="outline"
+                app:endIconMode="clear_text"
                 app:helperTextTextColor="#000"
                 android:textColorHint="#000"
-                app:helperText="Ingresa la edad en meses"
+                app:helperText="Ingrese la edad en meses"
                 app:counterEnabled="true"
                 app:counterMaxLength="3">
 
@@ -133,6 +134,7 @@
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="20dp"
                 android:hint="@string/descrip"
+                app:endIconMode="clear_text"
                 android:textColorHint="#000"
                 app:boxBackgroundMode="outline"
                 app:helperText="Queremos conocer a tu mascota"
@@ -165,6 +167,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="20dp"
+                app:endIconMode="clear_text"
                 android:textColorHint="#000"
                 android:hint="@string/nombre"
                 app:boxBackgroundMode="outline"
@@ -188,6 +191,7 @@
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="20dp"
                 android:hint="@string/direccion"
+                app:endIconMode="clear_text"
                 app:boxBackgroundMode="outline"
                 android:textColorHint="#000"
                 app:counterMaxLength="15">
@@ -230,6 +234,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
+                app:endIconMode="clear_text"
                 android:layout_marginTop="20dp"
                 android:hint="@string/ciudad_departamento"
                 app:boxBackgroundMode="outline"

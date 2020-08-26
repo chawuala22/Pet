@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -53,27 +54,28 @@ public class Add extends AppCompatActivity {
             public void onClick(View view) {
 
                 String nombre_mascota =namepet.getText().toString();
-                int edad_mascota = Integer.parseInt(edadpet.getText().toString());
+                String edad_mascota = edadpet.getText().toString();
                 String desc_mascota =descripet.getText().toString();
                 String nombre_persona =namepersona.getText().toString();
                 String direccion_persona =direccion.getText().toString();
                 String email_persona =email.getText().toString();
                 String ubicacion_persona =ubicacion.getText().toString();
 
-
-                loadbd(nombre_mascota, edad_mascota, desc_mascota, nombre_persona, direccion_persona, email_persona, ubicacion_persona);
-                delete_data();
-
-                if(!nombre_mascota.isEmpty() && !nombre_persona.isEmpty() && !desc_mascota.isEmpty()
-                        &&!direccion_persona.isEmpty() && !email_persona.isEmpty() && !ubicacion_persona.isEmpty() ){
-                    Toast.makeText(Add.this, "Go!", Toast.LENGTH_SHORT).show();
-
+                if (namepet.getText().toString().trim().equalsIgnoreCase("")){
+                    edadpet.setError("Campo requerido");
+                    descripet.setError("Campo requerido");
+                    namepersona.setError("Campo requerido");
+                    direccion.setError("Campo requerido");
+                    email.setError("Campo requerido");
+                    ubicacion.setError("Campo requerido");
+                    Toast.makeText(getApplicationContext(),"No se pudo completar el registro, llene todos los campos", Toast.LENGTH_LONG).show();
                 }else{
-                    Toast.makeText(Add.this, "Complete todos los campos", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                    Toast.makeText(getApplicationContext(),"Registro exitoso", Toast.LENGTH_LONG).show();
+                    loadbd(nombre_mascota, edad_mascota, desc_mascota, nombre_persona, direccion_persona, email_persona, ubicacion_persona);
+                    delete_data();
                 }
 
-                startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                Toast.makeText(getApplicationContext(),"Registro exitoso", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -126,7 +128,7 @@ public class Add extends AppCompatActivity {
         ubicacion.setText("");
     }
 
-    private void loadbd(String nombre_mascota, int edad_mascota, String desc_mascota, String nombre_persona, String direccion_persona, String email_persona, String ubicacion_persona) {
+    private void loadbd(String nombre_mascota, String edad_mascota, String desc_mascota, String nombre_persona, String direccion_persona, String email_persona, String ubicacion_persona) {
         Map<String, Object> datosinscripcion  = new HashMap<>();
 
         datosinscripcion.put("npet",nombre_mascota);
