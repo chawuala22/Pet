@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         cat = findViewById(R.id.gato);
         vetr = findViewById(R.id.veterinario);
 
+
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
