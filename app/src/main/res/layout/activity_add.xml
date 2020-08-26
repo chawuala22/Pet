@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#000"
-    tools:context=".MainActivity">
+    tools:context=".Add">
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -47,5 +47,27 @@
             android:background="@android:color/transparent"
             app:srcCompat="@drawable/vet" />
     </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#DFE4E8">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#DFE4E8"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="HOLA PESTAÑA DE Inscribir">
+
+            </TextView>
+
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

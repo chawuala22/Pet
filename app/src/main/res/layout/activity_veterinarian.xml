@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#000"
-    tools:context=".MainActivity">
+    tools:context=".Veterinarian">
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -47,5 +48,28 @@
             android:background="@android:color/transparent"
             app:srcCompat="@drawable/vet" />
     </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#DFE4E8">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#DFE4E8"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="HOLA PESTAÑA DE VETERINARIOS">
+
+            </TextView>
+
+        </LinearLayout>
+    </ScrollView>
+
 
 </LinearLayout>
