@@ -82,15 +82,15 @@
             <com.google.android.material.textfield.TextInputLayout
 
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="260dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="20dp"
-                android:textColorHint="#000"
                 android:hint="@string/nombre"
-                app:endIconMode="clear_text"
+                android:textColorHint="#000"
                 app:boxBackgroundMode="outline"
-                app:counterMaxLength="15">
+                app:counterMaxLength="15"
+                app:endIconMode="clear_text">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/namepet"
@@ -130,7 +130,7 @@
             <com.google.android.material.textfield.TextInputLayout
 
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
+                android:layout_width="260dp"
                 android:layout_height="114dp"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="20dp"
@@ -151,29 +151,74 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <ImageButton
-                android:id="@+id/foto"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:background="@android:color/transparent"
-                android:contentDescription="Inscribirse"
-                app:srcCompat="@drawable/photo" />
+                android:text="@string/subir_foto"
+                android:fontFamily="@font/bebas"
+                android:textSize="10dp"
+                android:textColor="#000" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/choosephoto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/folder" />
+
+                <com.google.android.material.textfield.TextInputLayout
+
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/pic"
+                    android:textColorHint="#000"
+                    app:boxBackgroundMode="outline"
+                    app:endIconMode="clear_text"
+                    app:helperTextTextColor="#000">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/pic_name"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="text">
+
+                    </com.google.android.material.textfield.TextInputEditText>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <ImageButton
+                    android:id="@+id/uploadfoto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Inscribirse"
+                    app:srcCompat="@drawable/photo" />
+
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="410dp"
+                android:layout_height="410dp"
+                android:id="@+id/iv_result"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/subir_foto"
-                android:fontFamily="@font/bebas"
-                android:textSize="10dp"
-                android:textColor="#000" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
                 android:text="@string/datos_responsable"
                 android:fontFamily="@font/bebas"
                 android:textSize="20dp"
@@ -182,7 +227,7 @@
             <com.google.android.material.textfield.TextInputLayout
 
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
+                android:layout_width="260dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="20dp"
@@ -205,7 +250,7 @@
             <com.google.android.material.textfield.TextInputLayout
 
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
+                android:layout_width="260dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="20dp"
@@ -228,13 +273,13 @@
             <com.google.android.material.textfield.TextInputLayout
 
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
+                android:layout_width="260dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="10dp"
                 android:hint="@string/email"
-                app:boxBackgroundMode="outline"
                 android:textColorHint="#000"
+                app:boxBackgroundMode="outline"
                 app:counterMaxLength="15">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -250,7 +295,7 @@
             <com.google.android.material.textfield.TextInputLayout
 
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
+                android:layout_width="260dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 app:endIconMode="clear_text"
@@ -281,6 +326,7 @@
                 android:background="@drawable/bordes_redondos"
                 android:fontFamily="@font/bebas"
                 android:text="@string/inscribir"
+                android:layout_marginBottom="5dp"
                 android:textSize="20dp" />
 
 
