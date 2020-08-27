@@ -15,7 +15,7 @@ public class Veterinarian extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_veterinarian);
-
+        getSupportActionBar().setTitle("Veterinarios");
         cat = findViewById(R.id.gato);
         dog = findViewById(R.id.perro);
         add = findViewById(R.id.inscrbirse);

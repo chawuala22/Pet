@@ -18,7 +18,7 @@ public class Cat extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cat);
-
+        getSupportActionBar().setTitle("Gatos");
         add = findViewById(R.id.inscrbirse);
         dog = findViewById(R.id.perro);
         vetr = findViewById(R.id.veterinario);

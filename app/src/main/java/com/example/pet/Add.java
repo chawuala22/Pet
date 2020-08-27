@@ -70,6 +70,7 @@ public class Add extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
+        getSupportActionBar().setTitle("Inscripción");
         cat = findViewById(R.id.gato);
         dog = findViewById(R.id.perro);
         vetr = findViewById(R.id.veterinario);

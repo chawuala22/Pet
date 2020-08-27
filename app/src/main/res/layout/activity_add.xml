@@ -94,6 +94,8 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/namepet"
+                    android:drawableStart="@drawable/petname"
+                    android:drawablePadding="10dp"
                     android:layout_width="260dp"
                     android:layout_height="wrap_content"
                     android:inputType="text">
@@ -120,6 +122,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/agepet"
                     android:layout_width="260dp"
+                    android:drawableStart="@drawable/age"
+                    android:drawablePadding="10dp"
                     android:layout_height="wrap_content"
                     android:inputType="text">
 
@@ -143,6 +147,8 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/descpet"
+                    android:drawableStart="@drawable/document"
+                    android:drawablePadding="10dp"
                     android:layout_width="260dp"
                     android:layout_height="80dp"
                     android:inputType="text">
@@ -172,7 +178,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_marginRight="20dp"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginLeft="15dp"
                     android:background="@android:color/transparent"
                     android:src="@drawable/folder" />
 
@@ -202,7 +208,7 @@
                     android:id="@+id/uploadfoto"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="15dp"
                     android:background="@android:color/transparent"
                     android:contentDescription="Inscribirse"
                     app:srcCompat="@drawable/photo" />
@@ -240,6 +246,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/nombre"
                     android:layout_width="260dp"
+                    android:drawableStart="@drawable/user"
+                    android:drawablePadding="10dp"
                     android:layout_height="wrap_content"
                     android:inputType="text">
 
@@ -263,6 +271,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/direccion"
                     android:layout_width="260dp"
+                    android:drawableStart="@drawable/address"
+                    android:drawablePadding="10dp"
                     android:layout_height="wrap_content"
                     android:inputType="text">
 
@@ -285,6 +295,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/email"
                     android:layout_width="260dp"
+                    android:drawableStart="@drawable/email"
+                    android:drawablePadding="10dp"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress">
 
@@ -310,6 +322,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/ciudad"
                     android:layout_width="260dp"
+                    android:drawableStart="@drawable/cities"
+                    android:drawablePadding="10dp"
                     android:layout_height="wrap_content"
                     android:inputType="text">
 

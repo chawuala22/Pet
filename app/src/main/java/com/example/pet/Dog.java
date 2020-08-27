@@ -15,7 +15,7 @@ public class Dog extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dog);
-
+        getSupportActionBar().setTitle("Perros");
         add = findViewById(R.id.inscrbirse);
         cat = findViewById(R.id.gato);
         vetr = findViewById(R.id.veterinario);
