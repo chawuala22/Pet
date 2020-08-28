@@ -1,4 +1,4 @@
-package com.example.pet;
+package com.example.pet.cat;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,49 +7,62 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-public class Veterinarian extends AppCompatActivity {
+import com.example.pet.inscripcion.Add;
+import com.example.pet.R;
+import com.example.pet.veterinarian.Veterinarian;
+import com.example.pet.dog.Dog;
 
-    ImageButton dog,cat,add;
+public class Cat extends AppCompatActivity {
+
+    ImageButton add, dog, vetr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_veterinarian);
-        getSupportActionBar().setTitle("Veterinarios");
+        setContentView(R.layout.activity_cat);
+        getSupportActionBar().setTitle("Gatos");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        cat = findViewById(R.id.gato);
-        dog = findViewById(R.id.perro);
         add = findViewById(R.id.inscrbirse);
+        dog = findViewById(R.id.perro);
+        vetr = findViewById(R.id.veterinario);
         buttons();
+
     }
 
     private void buttons() {
-        cat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(Veterinarian.this, Cat.class);
-                startActivity(i);
-            }
-        });
-        dog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(Veterinarian.this, Dog.class);
-                startActivity(i);
-            }
-        });
-
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Veterinarian.this, Add.class);
+
+
+                Intent i = new Intent(Cat.this, Add.class);
+                startActivity(i);
+            }
+        });
+
+        dog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                Intent i = new Intent(Cat.this, Dog.class);
+                startActivity(i);
+            }
+        });
+
+        vetr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                Intent i = new Intent(Cat.this, Veterinarian.class);
                 startActivity(i);
 
             }
         });
-    }
 
+    }
     @Override
     public void onBackPressed() {
     }

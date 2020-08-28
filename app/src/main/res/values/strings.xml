@@ -13,4 +13,5 @@
     <string name="bienvenido">Hola, Bienvenido a Adottare</string>
     <string name="caption">Aquí podras encontrar una mascota para ti!</string>
     <string name="pic">Nombre de la foto</string>
+    <string name="contacto">Informacion de contacto</string>
 </resources>

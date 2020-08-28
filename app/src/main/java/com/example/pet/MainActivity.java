@@ -10,6 +10,11 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.example.pet.cat.Cat;
+import com.example.pet.dog.Dog;
+import com.example.pet.inscripcion.Add;
+import com.example.pet.veterinarian.Veterinarian;
+
 public class MainActivity extends AppCompatActivity {
 
     ImageButton add,dog,cat,vetr;

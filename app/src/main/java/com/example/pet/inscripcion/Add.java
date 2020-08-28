@@ -1,4 +1,4 @@
-package com.example.pet;
+package com.example.pet.inscripcion;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,6 +23,12 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.pet.MainActivity;
+import com.example.pet.R;
+import com.example.pet.Tipo;
+import com.example.pet.veterinarian.Veterinarian;
+import com.example.pet.cat.Cat;
+import com.example.pet.dog.Dog;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
@@ -105,7 +111,7 @@ public class Add extends AppCompatActivity {
 
                     Toast.makeText(getApplicationContext(),"No se pudo completar el registro, llene todos los campos", Toast.LENGTH_LONG).show();
                 }else{
-                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     Toast.makeText(getApplicationContext(),"Registro exitoso", Toast.LENGTH_LONG).show();
                     loadbd(nombre_mascota, edad_mascota, desc_mascota, nombre_persona, direccion_persona, email_persona, ubicacion_persona);
                     delete_data();

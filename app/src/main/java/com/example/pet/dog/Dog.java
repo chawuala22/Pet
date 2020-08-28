@@ -1,4 +1,4 @@
-package com.example.pet;
+package com.example.pet.dog;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -7,15 +7,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+
+import com.example.pet.inscripcion.Add;
+import com.example.pet.cat.Cat;
+import com.example.pet.R;
+import com.example.pet.veterinarian.Veterinarian;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
 public class Dog extends AppCompatActivity {
 
-      ImageButton add,cat,vetr;
-       RecyclerView recyclerView;
-       Adapter_dog adapter;
+    ImageButton add,cat,vetr;
+    RecyclerView recyclerView;
+    Adapter_dog adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

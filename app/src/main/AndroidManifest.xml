@@ -13,24 +13,29 @@
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Splash"
+        <activity android:name=".dog.ViewDog"></activity>
+        <activity
+            android:name=".Splash"
             android:theme="@style/Theme.Design.NoActionBar">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Veterinarian"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".Add"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".Dog"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".Cat"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".MainActivity">
-        </activity>
+        <activity
+            android:name=".veterinarian.Veterinarian"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".inscripcion.Add"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".dog.Dog"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".cat.Cat"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>
