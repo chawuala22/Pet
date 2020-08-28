@@ -1,9 +1,12 @@
 package com.example.pet;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -20,13 +23,16 @@ public class MainActivity extends AppCompatActivity {
         dog = findViewById(R.id.perro);
         cat = findViewById(R.id.gato);
         vetr = findViewById(R.id.veterinario);
+        buttons();
 
+    }
 
+    private void buttons() {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent i = new Intent(MainActivity.this,Add.class);
+                Intent i = new Intent(MainActivity.this, Add.class);
                 startActivity(i);
 
             }
@@ -37,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                Intent i = new Intent(MainActivity.this,Cat.class);
+                Intent i = new Intent(MainActivity.this, Cat.class);
                 startActivity(i);
 
             }
@@ -48,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                Intent i = new Intent(MainActivity.this,Dog.class);
+                Intent i = new Intent(MainActivity.this, Dog.class);
                 startActivity(i);
 
             }
@@ -59,11 +65,38 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                Intent i = new Intent(MainActivity.this,Veterinarian.class);
+                Intent i = new Intent(MainActivity.this, Veterinarian.class);
                 startActivity(i);
 
             }
         });
+    }
 
+    //Dialog pregunta salir
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        if (keyCode== event.KEYCODE_BACK){
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("¿Desea salir de Adottare?")
+                    .setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Intent intent = new Intent(Intent.ACTION_MAIN);
+                            intent.addCategory(Intent.CATEGORY_HOME);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                        }
+
+                    })
+                    .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    });
+            builder.show();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

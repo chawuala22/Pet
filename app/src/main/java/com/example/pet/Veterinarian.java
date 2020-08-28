@@ -16,6 +16,8 @@ public class Veterinarian extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_veterinarian);
         getSupportActionBar().setTitle("Veterinarios");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         cat = findViewById(R.id.gato);
         dog = findViewById(R.id.perro);
         add = findViewById(R.id.inscrbirse);
@@ -46,5 +48,9 @@ public class Veterinarian extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
     }
 }

@@ -3,17 +3,14 @@ package com.example.pet;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.storage.StorageManager;
 import android.provider.MediaStore;
 import android.text.Editable;
-import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.webkit.MimeTypeMap;
@@ -24,7 +21,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -70,6 +66,8 @@ public class Add extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
         getSupportActionBar().setTitle("Inscripción");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         cat = findViewById(R.id.gato);
         dog = findViewById(R.id.perro);
         vetr = findViewById(R.id.veterinario);
@@ -97,11 +95,14 @@ public class Add extends AppCompatActivity {
                 //validacion
                 if (namepet.getText().toString().trim().equalsIgnoreCase("")){
                     edadpet.setError("Campo requerido");
+                    namepet.setError("Campo requerido");
                     descripet.setError("Campo requerido");
                     namepersona.setError("Campo requerido");
                     direccion.setError("Campo requerido");
                     email.setError("Campo requerido");
                     ubicacion.setError("Campo requerido");
+                    choosename.setError("Campo requerido");
+
                     Toast.makeText(getApplicationContext(),"No se pudo completar el registro, llene todos los campos", Toast.LENGTH_LONG).show();
                 }else{
                     startActivity(new Intent(getApplicationContext(),MainActivity.class));
@@ -118,13 +119,13 @@ public class Add extends AppCompatActivity {
                 Intent photopicker =new Intent(Intent.ACTION_PICK);
                 photopicker.setType("image/*");
                 startActivityForResult(photopicker,GALLERY_INTENT);
-                Toast.makeText(getApplicationContext(),"Foto cargada correctamente, pulsa e el boton subir",Toast.LENGTH_LONG).show();
             }
         });
 
         choosename.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                Toast.makeText(getApplicationContext(),"Foto cargada correctamente, pulsa e el boton subir",Toast.LENGTH_LONG).show();
 
             }
 
@@ -138,13 +139,14 @@ public class Add extends AppCompatActivity {
 
             }
         });
-
         uploadphoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 uploadimage();
             }
         });
+
+
 
     }
 
@@ -175,6 +177,13 @@ public class Add extends AppCompatActivity {
 
     }
     private void uploadimage() {
+
+        if(choosename.getText().toString().trim().equalsIgnoreCase("")){
+            Toast.makeText(getApplicationContext(),"Por favor sube una imagen",Toast.LENGTH_LONG).show();
+        }else{
+
+
+
         imageRef =storageRef.child("FolderPets/"+ choosename.getText().toString()+"."+
                 GetExtension(uriImage));
 
@@ -214,6 +223,7 @@ public class Add extends AppCompatActivity {
                 });
             }
         });
+        }
     }
     private String GetExtension(Uri uriImage) {
         ContentResolver contentResolver = getContentResolver();
@@ -325,5 +335,10 @@ public class Add extends AppCompatActivity {
             }
         });
 
+    }
+
+
+    @Override
+    public void onBackPressed() {
     }
 }

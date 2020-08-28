@@ -19,6 +19,8 @@ public class Cat extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cat);
         getSupportActionBar().setTitle("Gatos");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         add = findViewById(R.id.inscrbirse);
         dog = findViewById(R.id.perro);
         vetr = findViewById(R.id.veterinario);
@@ -58,5 +60,8 @@ public class Cat extends AppCompatActivity {
             }
         });
 
+    }
+    @Override
+    public void onBackPressed() {
     }
 }

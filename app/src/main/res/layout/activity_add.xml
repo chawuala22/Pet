@@ -148,7 +148,7 @@
                 app:helperText="Información/Vacunas"
                 app:helperTextTextColor="#000"
                 app:counterEnabled="true"
-                app:counterMaxLength="69">
+                app:counterMaxLength="102">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/descpet"

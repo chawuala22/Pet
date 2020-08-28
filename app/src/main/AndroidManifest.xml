@@ -21,10 +21,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Veterinarian" />
-        <activity android:name=".Add" />
-        <activity android:name=".Dog" />
-        <activity android:name=".Cat" />
+        <activity android:name=".Veterinarian"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".Add"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".Dog"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".Cat"
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".MainActivity">
         </activity>
     </application>

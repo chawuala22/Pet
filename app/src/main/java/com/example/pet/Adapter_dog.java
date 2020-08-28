@@ -3,9 +3,7 @@ package com.example.pet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -29,7 +27,11 @@ public class Adapter_dog extends FirebaseRecyclerAdapter<Adatos_dog,Adapter_dog.
         myviewholder.desc.setText(adatos_dog.getDescpet());
         Glide.with(myviewholder.img.getContext()).load(adatos_dog.getUrlimage()).into(myviewholder.img);
 
-
+      /*  myviewholder.view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            }
+        });*/
     }
 
     @NonNull
@@ -41,9 +43,9 @@ public class Adapter_dog extends FirebaseRecyclerAdapter<Adatos_dog,Adapter_dog.
 
     class myviewholder extends RecyclerView.ViewHolder{
 
+        View view;
         CircleImageView img;
         TextView name,edad,desc;
-
         public myviewholder(@NonNull View itemView) {
             super(itemView);
             img= itemView.findViewById(R.id.image);
