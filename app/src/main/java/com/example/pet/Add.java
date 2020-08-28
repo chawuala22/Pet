@@ -60,9 +60,8 @@ public class Add extends AppCompatActivity {
     private UploadTask uploadTask;
 
     //Firebase
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("Datos");
 
+    DatabaseReference myRef ;
     FirebaseStorage storage;
     StorageReference storageRef, imageRef;
 
@@ -77,6 +76,8 @@ public class Add extends AppCompatActivity {
 
         storage = FirebaseStorage.getInstance();
         storageRef = storage.getReference();
+
+        myRef=FirebaseDatabase.getInstance().getReference();
 
         instanciar();
         buttons();
@@ -117,6 +118,7 @@ public class Add extends AppCompatActivity {
                 Intent photopicker =new Intent(Intent.ACTION_PICK);
                 photopicker.setType("image/*");
                 startActivityForResult(photopicker,GALLERY_INTENT);
+                Toast.makeText(getApplicationContext(),"Foto cargada correctamente, pulsa e el boton subir",Toast.LENGTH_LONG).show();
             }
         });
 
