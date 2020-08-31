@@ -10,8 +10,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.example.pet.cat.Cat;
-import com.example.pet.dog.Dog;
+import com.example.pet.Animals.Animals;
 import com.example.pet.inscripcion.Add;
 import com.example.pet.veterinarian.Veterinarian;
 
@@ -26,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
 
         add = findViewById(R.id.inscrbirse);
         dog = findViewById(R.id.perro);
-        cat = findViewById(R.id.gato);
         vetr = findViewById(R.id.veterinario);
         buttons();
 
@@ -43,23 +41,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        cat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-                Intent i = new Intent(MainActivity.this, Cat.class);
-                startActivity(i);
-
-            }
-        });
-
         dog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
 
-                Intent i = new Intent(MainActivity.this, Dog.class);
+                Intent i = new Intent(MainActivity.this, Animals.class);
                 startActivity(i);
 
             }

@@ -8,8 +8,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.example.pet.R;
-import com.example.pet.cat.Cat;
-import com.example.pet.dog.Dog;
+import com.example.pet.Animals.Animals;
 import com.example.pet.inscripcion.Add;
 
 public class Veterinarian extends AppCompatActivity {
@@ -23,24 +22,16 @@ public class Veterinarian extends AppCompatActivity {
         getSupportActionBar().setTitle("Veterinarios");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        cat = findViewById(R.id.gato);
         dog = findViewById(R.id.perro);
         add = findViewById(R.id.inscrbirse);
         buttons();
     }
 
     private void buttons() {
-        cat.setOnClickListener(new View.OnClickListener() {
+             dog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Veterinarian.this, Cat.class);
-                startActivity(i);
-            }
-        });
-        dog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(Veterinarian.this, Dog.class);
+                Intent i = new Intent(Veterinarian.this, Animals.class);
                 startActivity(i);
             }
         });

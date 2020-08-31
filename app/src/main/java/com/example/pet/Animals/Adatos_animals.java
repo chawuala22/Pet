@@ -1,6 +1,6 @@
-package com.example.pet.dog;
+package com.example.pet.Animals;
 
-public class Adatos_dog {
+public class Adatos_animals {
 
     private String npet; //nombre mascota
     private String apet;    // edad mascota
@@ -12,9 +12,9 @@ public class Adatos_dog {
     private String npers; //nombre responsable
     private String ubiper; // ubicacion responsable
     private String epers; // email responsable
-    private String numcel;
+    private String numcel; //Numero responsable
 
-    public Adatos_dog(String npet, String apet, String descpet, String urlimage, String petSpinner, String dirpers, String npers, String ubiper, String epers, String numcel) {
+    public Adatos_animals(String npet, String apet, String descpet, String urlimage, String petSpinner, String dirpers, String npers, String ubiper, String epers, String numcel) {
         this.npet = npet;
         this.apet = apet;
         this.descpet = descpet;
@@ -107,7 +107,7 @@ public class Adatos_dog {
         this.numcel = numcel;
     }
 
-    public Adatos_dog() {
+    public Adatos_animals() {
     }
 }
 

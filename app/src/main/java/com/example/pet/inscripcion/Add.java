@@ -10,9 +10,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.AdapterView;
@@ -28,8 +26,7 @@ import com.example.pet.MainActivity;
 import com.example.pet.R;
 import com.example.pet.Tipo;
 import com.example.pet.veterinarian.Veterinarian;
-import com.example.pet.cat.Cat;
-import com.example.pet.dog.Dog;
+import com.example.pet.Animals.Animals;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
@@ -51,8 +48,8 @@ import java.util.Map;
 
 public class Add extends AppCompatActivity {
 
-    private ImageButton cat,dog,vetr,choosephoto, uploadphoto;
-    private EditText namepet,edadpet,descripet,namepersona,direccion,email,ubicacion, choosename,numtel;
+    private ImageButton dog,vetr,choosephoto, uploadphoto;
+    private EditText namepet,edadpet,descripet,namepersona,direccion,email,ubicacion,numtel;
     private ImageView iv_image;
     private Button inscribirse;
     private static final int GALLERY_INTENT = 1 ;
@@ -60,7 +57,6 @@ public class Add extends AppCompatActivity {
     private Spinner pet;
     private String pet_select ="", ImageUrl;
     private ProgressDialog progressDialog;
-    private UploadTask uploadTask;
 
     //Firebase
 
@@ -75,7 +71,6 @@ public class Add extends AppCompatActivity {
         getSupportActionBar().setTitle("Inscripción");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        cat = findViewById(R.id.gato);
         dog = findViewById(R.id.perro);
         vetr = findViewById(R.id.veterinario);
 
@@ -139,10 +134,7 @@ public class Add extends AppCompatActivity {
             }
         });
 
-
-
     }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -163,54 +155,56 @@ public class Add extends AppCompatActivity {
                     }
 
                 }
-
         }
-
-
-
     }
     private void uploadimage() {
-                imageRef =storageRef.child("FolderPets/"+
-                GetExtension(uriImage));
 
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setMax(100);
-        progressDialog.setMessage("Subiendo...");
-        progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-        progressDialog.show();
-        progressDialog.setCancelable(false);
+        if (uriImage != null) {
 
-        uploadTask = imageRef.putFile(uriImage);
+            imageRef = storageRef.child("FolderPets/" +
+                    GetExtension(uriImage));
 
-        uploadTask.addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                double progress= (100.0*taskSnapshot.getBytesTransferred())/taskSnapshot.getTotalByteCount();
-                progressDialog.incrementProgressBy((int)progress);
+            progressDialog = new ProgressDialog(this);
+            progressDialog.setMax(100);
+            progressDialog.setMessage("Subiendo...");
+            progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+            progressDialog.show();
+            progressDialog.setCancelable(false);
+
+            UploadTask uploadTask = imageRef.putFile(uriImage);
+
+            uploadTask.addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                    double progress = (100.0 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
+                    progressDialog.incrementProgressBy((int) progress);
+                }
+            });
+
+            uploadTask.addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(getApplicationContext(), "Falló", Toast.LENGTH_LONG).show();
+
+                }
+            }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    Toast.makeText(getApplicationContext(), "Se subió con exito", Toast.LENGTH_LONG).show();
+                    progressDialog.dismiss();
+                    imageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            ImageUrl = uri.toString();
+                        }
+                    });
+                }
+            });
+
+        } else {
+                Toast.makeText(getApplicationContext(), "No file selected", Toast.LENGTH_SHORT).show();
             }
-        });
-
-        uploadTask.addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getApplicationContext(),"Falló",Toast.LENGTH_LONG).show();
-                progressDialog.dismiss();
-            }
-        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                Toast.makeText(getApplicationContext(),"Se subió con exito",Toast.LENGTH_LONG).show();
-                progressDialog.dismiss();
-                imageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        ImageUrl = uri.toString();
-                    }
-                });
-            }
-        });
         }
-
     private String GetExtension(Uri uriImage) {
         ContentResolver contentResolver = getContentResolver();
         MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
@@ -234,17 +228,10 @@ public class Add extends AppCompatActivity {
 
     }
     private void buttons() {
-        cat.setOnClickListener(new View.OnClickListener() {
+                dog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Add.this, Cat.class);
-                startActivity(i);
-            }
-        });
-        dog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(Add.this, Dog.class);
+                Intent i = new Intent(Add.this, Animals.class);
                 startActivity(i);
             }
         });
@@ -323,8 +310,6 @@ public class Add extends AppCompatActivity {
         });
 
     }
-
-
     @Override
     public void onBackPressed() {
     }

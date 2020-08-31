@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#DFE4E8"
-    tools:context=".dog.Dog">
+    tools:context=".Animals.Animals">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,13 +32,6 @@
             android:background="@android:color/transparent"
             app:srcCompat="@drawable/dog" />
 
-        <ImageButton
-            android:id="@+id/gato"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            app:srcCompat="@drawable/cat" />
 
         <ImageButton
             android:id="@+id/veterinario"

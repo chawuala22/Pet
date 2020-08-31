@@ -1,22 +1,11 @@
-package com.example.pet.dog;
+package com.example.pet.Animals;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.media.Image;
-import android.net.Uri;
-import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,35 +13,30 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.example.pet.MainActivity;
 import com.example.pet.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.orhanobut.dialogplus.DialogPlus;
-import com.orhanobut.dialogplus.OnClickListener;
 import com.orhanobut.dialogplus.ViewHolder;
 import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class Adapter_dog extends FirebaseRecyclerAdapter<Adatos_dog,Adapter_dog.myviewholder> {
+public class Adapter_animals extends FirebaseRecyclerAdapter<Adatos_animals, Adapter_animals.myviewholder> {
 
 
-    public Adapter_dog(FirebaseRecyclerOptions<Adatos_dog> options) {
+    Activity activity;
+    public Adapter_animals(FirebaseRecyclerOptions<Adatos_animals> options ) {
         super(options);
     }
 
+
     @Override
-    protected void onBindViewHolder(final myviewholder myviewholder, final int i, final Adatos_dog adatos_dog) {
+    protected void onBindViewHolder(final myviewholder myviewholder, final int i, final Adatos_animals adatos_animals) {
 
-
-        if (adatos_dog.getPetSpinner().equalsIgnoreCase("Perro")){
-
-
-            myviewholder.name.setText(adatos_dog.getNpet());
-            myviewholder.edad.setText(adatos_dog.getApet());
-            Glide.with(myviewholder.img.getContext()).load(adatos_dog.getUrlimage()).into(myviewholder.img);
+            myviewholder.name.setText(adatos_animals.getNpet());
+            myviewholder.edad.setText(adatos_animals.getApet());
+            Glide.with(myviewholder.img.getContext()).load(adatos_animals.getUrlimage()).into(myviewholder.img);
 
 
             myviewholder.imageView.setOnClickListener(new View.OnClickListener() {
@@ -73,24 +57,21 @@ public class Adapter_dog extends FirebaseRecyclerAdapter<Adatos_dog,Adapter_dog.
                     TextView emailper1 = myview.findViewById(R.id.emailper_activity);
                     TextView ubiper1 = myview.findViewById(R.id.ubicacionper_activity);
 
-
-
-
                     final TextView numper1 = myview.findViewById(R.id.numeroper_activity);
 
                     ImageView image1 = myview.findViewById(R.id.imagen_activity);
 
                     Button btn1=myview.findViewById(R.id.whatsapp);
                     Button bt2=myview.findViewById(R.id.gmail);
-                    namepet1.setText(adatos_dog.getNpet());
-                    edadpet1.setText(adatos_dog.getApet());
-                    descripet1.setText(adatos_dog.getDescpet());
-                    nombreper1.setText(adatos_dog.getNpers());
-                    direcper1.setText(adatos_dog.getDirpers());
-                    emailper1.setText(adatos_dog.getEpers());
-                    ubiper1.setText(adatos_dog.getUbiper());
-                    numper1.setText(adatos_dog.getNumcel());
-                    Picasso.get().load(adatos_dog.getUrlimage()).into(image1);
+                    namepet1.setText(adatos_animals.getNpet());
+                    edadpet1.setText(adatos_animals.getApet());
+                    descripet1.setText(adatos_animals.getDescpet());
+                    nombreper1.setText(adatos_animals.getNpers());
+                    direcper1.setText(adatos_animals.getDirpers());
+                    emailper1.setText(adatos_animals.getEpers());
+                    ubiper1.setText(adatos_animals.getUbiper());
+                    numper1.setText(adatos_animals.getNumcel());
+                    Picasso.get().load(adatos_animals.getUrlimage()).into(image1);
 
 
 
@@ -99,7 +80,7 @@ public class Adapter_dog extends FirebaseRecyclerAdapter<Adatos_dog,Adapter_dog.
                         @Override
                         public void onClick(View view) {
 
-                            Toast.makeText(myview.getContext(),"El numero es "+ adatos_dog.getNumcel(),Toast.LENGTH_LONG).show();
+                            Toast.makeText(myview.getContext(),"El numero es "+ adatos_animals.getNumcel(),Toast.LENGTH_LONG).show();
 
                         }
                     });
@@ -114,7 +95,7 @@ public class Adapter_dog extends FirebaseRecyclerAdapter<Adatos_dog,Adapter_dog.
                 }
             });
 
-        }
+
     }
 
     @NonNull
