@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Pets</string>
+    <string name="app_name">Adottare</string>
     <string name="inscribir">Inscribirse</string>
     <string name="edad">Edad en meses</string>
     <string name="datos_mascota">Datos mascota</string>
@@ -15,4 +15,5 @@
     <string name="pic">Nombre de la foto</string>
     <string name="contacto">Informacion de contacto</string>
     <string name="numero_telefono">Numero de Celular</string>
+    <string name="subir_foto1">No olvides darle en la carpeta amarilla para subir la foto</string>
 </resources>

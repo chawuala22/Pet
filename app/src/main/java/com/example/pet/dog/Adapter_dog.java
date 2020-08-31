@@ -61,7 +61,7 @@ public class Adapter_dog extends FirebaseRecyclerAdapter<Adatos_dog,Adapter_dog.
                 public void onClick(View view) {
                     final DialogPlus dialog = DialogPlus.newDialog(myviewholder.img.getContext())
                             .setContentHolder(new ViewHolder(R.layout.activity_view_dog))
-                            .setExpanded(true,1700)
+                            .setExpanded(true,1500)
                             .create();
 
                      final View myview = dialog.getHolderView();
@@ -92,7 +92,7 @@ public class Adapter_dog extends FirebaseRecyclerAdapter<Adatos_dog,Adapter_dog.
                         @Override
                         public void onClick(View view) {
 
-                            Toast.makeText(myview.getContext(),"El numero es"+adatos_dog.getNumcel(),Toast.LENGTH_LONG).show();
+                            Toast.makeText(myview.getContext(),"El numero es "+ adatos_dog.getNumcel(),Toast.LENGTH_LONG).show();
 
                         }
                     });

@@ -27,7 +27,7 @@ public class ViewDog extends AppCompatActivity {
         direper=findViewById(R.id.direccionper_activity);
         emailper=findViewById(R.id.emailper_activity);
         ubiper=findViewById(R.id.ubicacionper_activity);
-        imageView=findViewById(R.id.image_activity);
+
 
     }
 }

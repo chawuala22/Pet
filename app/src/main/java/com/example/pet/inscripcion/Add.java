@@ -131,23 +131,6 @@ public class Add extends AppCompatActivity {
             }
         });
 
-        choosename.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                uploadphoto.setEnabled(true);
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-            }
-        });
-
         uploadphoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -187,14 +170,7 @@ public class Add extends AppCompatActivity {
 
     }
     private void uploadimage() {
-
-        if(choosename.getText().toString().trim().equalsIgnoreCase("")){
-            Toast.makeText(getApplicationContext(),"Por favor sube una imagen",Toast.LENGTH_LONG).show();
-        }else{
-
-
-
-        imageRef =storageRef.child("FolderPets/"+ choosename.getText().toString()+"."+
+                imageRef =storageRef.child("FolderPets/"+
                 GetExtension(uriImage));
 
         progressDialog = new ProgressDialog(this);
@@ -234,7 +210,7 @@ public class Add extends AppCompatActivity {
             }
         });
         }
-    }
+
     private String GetExtension(Uri uriImage) {
         ContentResolver contentResolver = getContentResolver();
         MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
@@ -252,7 +228,6 @@ public class Add extends AppCompatActivity {
         inscribirse= findViewById(R.id.btninscribirse);
         choosephoto=findViewById(R.id.choosephoto);
         uploadphoto=findViewById(R.id.uploadfoto);
-        choosename=findViewById(R.id.pic_name);
         numtel=findViewById(R.id.numerotelefono);
         iv_image=findViewById(R.id.iv_result);
         progressDialog = new ProgressDialog(this);
