@@ -39,7 +39,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class Adapter_dog extends FirebaseRecyclerAdapter<Adatos_dog,Adapter_dog.myviewholder> {
 
 
-
     public Adapter_dog(FirebaseRecyclerOptions<Adatos_dog> options) {
         super(options);
     }
@@ -73,12 +72,16 @@ public class Adapter_dog extends FirebaseRecyclerAdapter<Adatos_dog,Adapter_dog.
                     TextView direcper1 = myview.findViewById(R.id.direccionper_activity);
                     TextView emailper1 = myview.findViewById(R.id.emailper_activity);
                     TextView ubiper1 = myview.findViewById(R.id.ubicacionper_activity);
+
+
+
+
                     final TextView numper1 = myview.findViewById(R.id.numeroper_activity);
 
+                    ImageView image1 = myview.findViewById(R.id.imagen_activity);
 
                     Button btn1=myview.findViewById(R.id.whatsapp);
                     Button bt2=myview.findViewById(R.id.gmail);
-
                     namepet1.setText(adatos_dog.getNpet());
                     edadpet1.setText(adatos_dog.getApet());
                     descripet1.setText(adatos_dog.getDescpet());
@@ -87,6 +90,10 @@ public class Adapter_dog extends FirebaseRecyclerAdapter<Adatos_dog,Adapter_dog.
                     emailper1.setText(adatos_dog.getEpers());
                     ubiper1.setText(adatos_dog.getUbiper());
                     numper1.setText(adatos_dog.getNumcel());
+                    Picasso.get().load(adatos_dog.getUrlimage()).into(image1);
+
+
+
 
                     btn1.setOnClickListener(new View.OnClickListener() {
                         @Override

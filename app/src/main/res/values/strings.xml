@@ -15,5 +15,5 @@
     <string name="pic">Nombre de la foto</string>
     <string name="contacto">Informacion de contacto</string>
     <string name="numero_telefono">Numero de Celular</string>
-    <string name="subir_foto1">No olvides darle en la carpeta amarilla para subir la foto</string>
+    <string name="subir_foto1">Elige en los 3 puntos y sube con la carpeta amarilla</string>
 </resources>
