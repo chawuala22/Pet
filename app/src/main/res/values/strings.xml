@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Pets</string>
     <string name="inscribir">Inscribirse</string>
-    <string name="edad">Edad</string>
+    <string name="edad">Edad en meses</string>
     <string name="datos_mascota">Datos mascota</string>
     <string name="descrip">Ingresa una pequeña descripción</string>
     <string name="datos_responsable">Datos Responsable</string>
@@ -14,4 +14,5 @@
     <string name="caption">Aquí podras encontrar una mascota para ti!</string>
     <string name="pic">Nombre de la foto</string>
     <string name="contacto">Informacion de contacto</string>
+    <string name="numero_telefono">Numero de Celular</string>
 </resources>

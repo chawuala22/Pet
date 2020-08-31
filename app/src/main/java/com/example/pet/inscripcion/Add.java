@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.webkit.MimeTypeMap;
@@ -51,7 +52,7 @@ import java.util.Map;
 public class Add extends AppCompatActivity {
 
     private ImageButton cat,dog,vetr,choosephoto, uploadphoto;
-    private EditText namepet,edadpet,descripet,namepersona,direccion,email,ubicacion, choosename;
+    private EditText namepet,edadpet,descripet,namepersona,direccion,email,ubicacion, choosename,numtel;
     private ImageView iv_image;
     private Button inscribirse;
     private static final int GALLERY_INTENT = 1 ;
@@ -97,25 +98,25 @@ public class Add extends AppCompatActivity {
                 String direccion_persona =direccion.getText().toString();
                 String email_persona =email.getText().toString();
                 String ubicacion_persona =ubicacion.getText().toString();
+                String numerotel=numtel.getText().toString();
 
                 //validacion
-                if (namepet.getText().toString().trim().equalsIgnoreCase("")){
-                    edadpet.setError("Campo requerido");
-                    namepet.setError("Campo requerido");
-                    descripet.setError("Campo requerido");
-                    namepersona.setError("Campo requerido");
-                    direccion.setError("Campo requerido");
-                    email.setError("Campo requerido");
-                    ubicacion.setError("Campo requerido");
-                    choosename.setError("Campo requerido");
-
-                    Toast.makeText(getApplicationContext(),"No se pudo completar el registro, llene todos los campos", Toast.LENGTH_LONG).show();
-                }else{
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                    Toast.makeText(getApplicationContext(),"Registro exitoso", Toast.LENGTH_LONG).show();
-                    loadbd(nombre_mascota, edad_mascota, desc_mascota, nombre_persona, direccion_persona, email_persona, ubicacion_persona);
-                    delete_data();
+                if (nombre_mascota.isEmpty() &&edad_mascota.isEmpty()&&desc_mascota.isEmpty()&&nombre_persona.isEmpty()
+                        &&direccion_persona.isEmpty()&&email_persona.isEmpty()&&ubicacion_persona.isEmpty()&&numerotel.isEmpty()){
+                    namepet.setError("Campo requerrido"); edadpet.setError("Campo requerrido"); descripet.setError("Campo requerrido");
+                    namepersona.setError("Campo requerrido");  direccion.setError("Campo requerrido"); email.setError("Campo requerrido");
+                    ubicacion.setError("Campo requerrido"); numtel.setError("Campo requerrido");
                 }
+                if (TextUtils.isEmpty(numerotel)){
+                    Toast.makeText(getApplicationContext(),"No se pudo completar el registro, llene todos los campos", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                Toast.makeText(getApplicationContext(),"Registro exitoso", Toast.LENGTH_LONG).show();
+                loadbd(nombre_mascota, edad_mascota, desc_mascota, nombre_persona, direccion_persona, email_persona, ubicacion_persona,numerotel);
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                delete_data();
+
             }
         });
 
@@ -125,13 +126,15 @@ public class Add extends AppCompatActivity {
                 Intent photopicker =new Intent(Intent.ACTION_PICK);
                 photopicker.setType("image/*");
                 startActivityForResult(photopicker,GALLERY_INTENT);
+               Toast.makeText(getApplicationContext(),"Foto cargada correctamente, pulsa en el boton subir",Toast.LENGTH_LONG).show();
+
             }
         });
 
         choosename.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                Toast.makeText(getApplicationContext(),"Foto cargada correctamente, pulsa e el boton subir",Toast.LENGTH_LONG).show();
+
 
             }
 
@@ -142,13 +145,14 @@ public class Add extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-
             }
         });
+
         uploadphoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 uploadimage();
+
             }
         });
 
@@ -249,6 +253,7 @@ public class Add extends AppCompatActivity {
         choosephoto=findViewById(R.id.choosephoto);
         uploadphoto=findViewById(R.id.uploadfoto);
         choosename=findViewById(R.id.pic_name);
+        numtel=findViewById(R.id.numerotelefono);
         iv_image=findViewById(R.id.iv_result);
         progressDialog = new ProgressDialog(this);
 
@@ -287,7 +292,7 @@ public class Add extends AppCompatActivity {
         email.setText("");
         ubicacion.setText("");
     }
-    private void loadbd(String nombre_mascota, String edad_mascota, String desc_mascota, String nombre_persona, String direccion_persona, String email_persona, String ubicacion_persona) {
+    private void loadbd(String nombre_mascota, String edad_mascota, String desc_mascota, String nombre_persona, String direccion_persona, String email_persona, String ubicacion_persona, String numerotel) {
 
         Map<String, Object> datosinscripcion  = new HashMap<>();
         datosinscripcion.put("npet",nombre_mascota);
@@ -297,6 +302,7 @@ public class Add extends AppCompatActivity {
         datosinscripcion.put("dirpers",direccion_persona);
         datosinscripcion.put("epers",email_persona);
         datosinscripcion.put("ubiper",ubicacion_persona);
+        datosinscripcion.put("numcel",numerotel);
         datosinscripcion.put("petSpinner",pet_select);
         datosinscripcion.put("urlimage",ImageUrl);
 

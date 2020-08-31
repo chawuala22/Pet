@@ -3,6 +3,7 @@ package com.example.pet.dog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,6 +13,7 @@ public class ViewDog extends AppCompatActivity {
 
     private ImageView imageView;
     TextView namepet,edadpet,descpet,nameper,direper,emailper,ubiper;
+    Button whatsapp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -12,8 +12,9 @@ public class Adatos_dog {
     private String npers; //nombre responsable
     private String ubiper; // ubicacion responsable
     private String epers; // email responsable
+    private String numcel;
 
-    public Adatos_dog(String npet, String apet, String descpet, String urlimage, String petSpinner, String dirpers, String npers, String ubiper, String epers) {
+    public Adatos_dog(String npet, String apet, String descpet, String urlimage, String petSpinner, String dirpers, String npers, String ubiper, String epers, String numcel) {
         this.npet = npet;
         this.apet = apet;
         this.descpet = descpet;
@@ -23,6 +24,7 @@ public class Adatos_dog {
         this.npers = npers;
         this.ubiper = ubiper;
         this.epers = epers;
+        this.numcel = numcel;
     }
 
     public String getNpet() {
@@ -95,6 +97,14 @@ public class Adatos_dog {
 
     public void setEpers(String epers) {
         this.epers = epers;
+    }
+
+    public String getNumcel() {
+        return numcel;
+    }
+
+    public void setNumcel(String numcel) {
+        this.numcel = numcel;
     }
 
     public Adatos_dog() {

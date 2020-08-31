@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.example.pet.inscripcion.Add;
@@ -19,6 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Dog extends AppCompatActivity {
 
+Button button;
     ImageButton add,cat,vetr;
     RecyclerView recyclerView;
     Adapter_dog adapter;
@@ -30,11 +33,13 @@ public class Dog extends AppCompatActivity {
         getSupportActionBar().setTitle("Perros");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
         add = findViewById(R.id.inscrbirse);
         cat = findViewById(R.id.gato);
         vetr = findViewById(R.id.veterinario);
         recyclerView=findViewById(R.id.recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
 
         FirebaseRecyclerOptions<Adatos_dog> options =
                 new FirebaseRecyclerOptions.Builder<Adatos_dog>()
@@ -95,3 +100,4 @@ public class Dog extends AppCompatActivity {
     public void onBackPressed() {
     }
 }
+
