@@ -35,7 +35,9 @@ public class Adapter_animals extends FirebaseRecyclerAdapter<Adatos_animals, Ada
     protected void onBindViewHolder(final myviewholder myviewholder, final int i, final Adatos_animals adatos_animals) {
 
             myviewholder.name.setText(adatos_animals.getApet());
-            myviewholder.edad.setText(adatos_animals.getNpet());
+            myviewholder.edad.setText(adatos_animals.getNpers());
+            myviewholder.votos.setText(adatos_animals.getNum_votos());
+
             Glide.with(myviewholder.img.getContext()).load(adatos_animals.getUrlimage()).into(myviewholder.img);
 
 
@@ -52,28 +54,26 @@ public class Adapter_animals extends FirebaseRecyclerAdapter<Adatos_animals, Ada
                      final TextView namepet1 = myview.findViewById(R.id.nombrepet_activity);
                     TextView edadpet1 = myview.findViewById(R.id.edadpet_activity);
                     TextView descripet1 = myview.findViewById(R.id.descpetpet_activity);
-                    TextView nombreper1 = myview.findViewById(R.id.nombreper_activity);
                     TextView direcper1 = myview.findViewById(R.id.direccionper_activity);
                     TextView emailper1 = myview.findViewById(R.id.emailper_activity);
                     TextView ubiper1 = myview.findViewById(R.id.ubicacionper_activity);
+                    TextView votos= myview.findViewById(R.id.numvotos);
 
                     final TextView numper1 = myview.findViewById(R.id.numeroper_activity);
 
                     ImageView image1 = myview.findViewById(R.id.imagen_activity);
 
-                    Button btn1=myview.findViewById(R.id.whatsapp);
-                    Button bt2=myview.findViewById(R.id.gmail);
-                    namepet1.setText(adatos_animals.getNpet());
-                    edadpet1.setText(adatos_animals.getApet());
+                    namepet1.setText(adatos_animals.getApet());
+                    edadpet1.setText(adatos_animals.getNpers());
                     descripet1.setText(adatos_animals.getDescpet());
-                    nombreper1.setText(adatos_animals.getNpers());
                     direcper1.setText(adatos_animals.getDirpers());
                     emailper1.setText(adatos_animals.getEpers());
                     ubiper1.setText(adatos_animals.getUbiper());
                     numper1.setText(adatos_animals.getNumcel());
+                    votos.setText(adatos_animals.getNum_votos());
                     Picasso.get().load(adatos_animals.getUrlimage()).into(image1);
 
-                    
+
                     dialog.show();
                 }
             });
@@ -92,7 +92,7 @@ public class Adapter_animals extends FirebaseRecyclerAdapter<Adatos_animals, Ada
 
         ImageView imageView;
         CircleImageView img;
-        TextView name,edad;
+        TextView name,edad,votos;
 
 
         public myviewholder(@NonNull View itemView) {
@@ -101,6 +101,7 @@ public class Adapter_animals extends FirebaseRecyclerAdapter<Adatos_animals, Ada
             img= itemView.findViewById(R.id.image);
             name= itemView.findViewById(R.id.nombrepet);
             edad= itemView.findViewById(R.id.edadpet);
+            votos=itemView.findViewById(R.id.num_votos);
             imageView=itemView.findViewById(R.id.update);
 
         }
