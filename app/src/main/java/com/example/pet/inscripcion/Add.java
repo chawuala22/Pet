@@ -22,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.pet.Animales1;
 import com.example.pet.MainActivity;
 import com.example.pet.R;
 import com.example.pet.Tipo;
@@ -49,7 +50,7 @@ import java.util.Map;
 public class Add extends AppCompatActivity {
 
     private ImageButton dog,vetr,choosephoto, uploadphoto;
-    private EditText namepet,edadpet,descripet,namepersona,direccion,email,ubicacion,numtel;
+    private EditText votos1,edadpet,descripet,namepersona,direccion,email,ubicacion,numtel;
     private ImageView iv_image;
     private Button inscribirse;
     private static final int GALLERY_INTENT = 1 ;
@@ -63,7 +64,6 @@ public class Add extends AppCompatActivity {
     DatabaseReference myRef ;
     FirebaseStorage storage;
     StorageReference storageRef, imageRef;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,7 +86,7 @@ public class Add extends AppCompatActivity {
         inscribirse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String nombre_mascota =namepet.getText().toString();
+                String votos =votos1.getText().toString();
                 String edad_mascota = edadpet.getText().toString();
                 String desc_mascota =descripet.getText().toString();
                 String nombre_persona =namepersona.getText().toString();
@@ -96,9 +96,9 @@ public class Add extends AppCompatActivity {
                 String numerotel=numtel.getText().toString();
 
                 //validacion
-                if (nombre_mascota.isEmpty() &&edad_mascota.isEmpty()&&desc_mascota.isEmpty()&&nombre_persona.isEmpty()
+                if (votos.isEmpty() &&edad_mascota.isEmpty()&&desc_mascota.isEmpty()&&nombre_persona.isEmpty()
                         &&direccion_persona.isEmpty()&&email_persona.isEmpty()&&ubicacion_persona.isEmpty()&&numerotel.isEmpty()){
-                    namepet.setError("Campo requerrido"); edadpet.setError("Campo requerrido"); descripet.setError("Campo requerrido");
+                    votos1.setError("Campo requerrido"); edadpet.setError("Campo requerrido"); descripet.setError("Campo requerrido");
                     namepersona.setError("Campo requerrido");  direccion.setError("Campo requerrido"); email.setError("Campo requerrido");
                     ubicacion.setError("Campo requerrido"); numtel.setError("Campo requerrido");
                 }
@@ -108,8 +108,8 @@ public class Add extends AppCompatActivity {
                 }
 
                 Toast.makeText(getApplicationContext(),"Registro exitoso", Toast.LENGTH_LONG).show();
-                loadbd(nombre_mascota, edad_mascota, desc_mascota, nombre_persona, direccion_persona, email_persona, ubicacion_persona,numerotel);
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                loadbd(votos, edad_mascota, desc_mascota, nombre_persona, direccion_persona, email_persona, ubicacion_persona,numerotel);
+                startActivity(new Intent(getApplicationContext(), Animales1.class));
                 delete_data();
 
             }
@@ -211,7 +211,7 @@ public class Add extends AppCompatActivity {
         return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uriImage));
     }
     private void instanciar() {
-        namepet = findViewById(R.id.namepet);
+        votos1=findViewById(R.id.num_votos);
         edadpet= findViewById(R.id.agepet);
         descripet= findViewById(R.id.descpet);
         namepersona= findViewById(R.id.nombre);
@@ -228,25 +228,10 @@ public class Add extends AppCompatActivity {
 
     }
     private void buttons() {
-                dog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(Add.this, Animals.class);
-                startActivity(i);
-            }
-        });
 
-        vetr.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(Add.this, Veterinarian.class);
-                startActivity(i);
-
-            }
-        });
     }
     private void delete_data() {
-        namepet.setText("");
+        votos1.setText("");
         edadpet.setText("");
         descripet.setText("");
         namepersona.setText("");
@@ -254,10 +239,10 @@ public class Add extends AppCompatActivity {
         email.setText("");
         ubicacion.setText("");
     }
-    private void loadbd(String nombre_mascota, String edad_mascota, String desc_mascota, String nombre_persona, String direccion_persona, String email_persona, String ubicacion_persona, String numerotel) {
+    private void loadbd(String votos, String edad_mascota, String desc_mascota, String nombre_persona, String direccion_persona, String email_persona, String ubicacion_persona, String numerotel) {
 
         Map<String, Object> datosinscripcion  = new HashMap<>();
-        datosinscripcion.put("npet",nombre_mascota);
+        datosinscripcion.put("num_votos",votos);
         datosinscripcion.put("apet",edad_mascota);
         datosinscripcion.put("descpet",desc_mascota);
         datosinscripcion.put("npers",nombre_persona);

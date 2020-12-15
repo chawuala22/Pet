@@ -13,8 +13,12 @@ public class Adatos_animals {
     private String ubiper; // ubicacion responsable
     private String epers; // email responsable
     private String numcel; //Numero responsable
+    private String num_votos;//Numero de votos
 
-    public Adatos_animals(String npet, String apet, String descpet, String urlimage, String petSpinner, String dirpers, String npers, String ubiper, String epers, String numcel) {
+    public Adatos_animals() {
+    }
+
+    public Adatos_animals(String npet, String apet, String descpet, String urlimage, String petSpinner, String dirpers, String npers, String ubiper, String epers, String numcel, String num_votos) {
         this.npet = npet;
         this.apet = apet;
         this.descpet = descpet;
@@ -25,6 +29,7 @@ public class Adatos_animals {
         this.ubiper = ubiper;
         this.epers = epers;
         this.numcel = numcel;
+        this.num_votos = num_votos;
     }
 
     public String getNpet() {
@@ -107,7 +112,12 @@ public class Adatos_animals {
         this.numcel = numcel;
     }
 
-    public Adatos_animals() {
+    public String getNum_votos() {
+        return num_votos;
+    }
+
+    public void setNum_votos(String num_votos) {
+        this.num_votos = num_votos;
     }
 }
 

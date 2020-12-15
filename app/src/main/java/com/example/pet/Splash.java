@@ -9,6 +9,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.pet.Animals.Animals;
+
 public class Splash extends AppCompatActivity {
 
     private TextView tv;
@@ -22,13 +24,13 @@ public class Splash extends AppCompatActivity {
 
         tv = findViewById(R.id.tv);
         iv = findViewById(R.id.iv);
-        tv1= findViewById(R.id.tv1);
+
 
         Animation myanim = AnimationUtils.loadAnimation(this, R.anim.mytransition);
         tv.startAnimation(myanim);
         iv.startAnimation(myanim);
-        tv1.startAnimation(myanim);
-        final Intent i = new Intent(this,MainActivity.class);
+
+        final Intent i = new Intent(this, Animals.class);
         Thread timer = new Thread(){
 
             public void run (){

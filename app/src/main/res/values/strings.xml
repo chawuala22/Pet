@@ -1,16 +1,18 @@
 <resources>
-    <string name="app_name">Adottare</string>
-    <string name="inscribir">Inscribirse</string>
-    <string name="edad">Edad en meses</string>
-    <string name="datos_mascota">Datos mascota</string>
-    <string name="descrip">Ingresa una pequeña descripción</string>
-    <string name="datos_responsable">Datos Responsable</string>
-    <string name="nombre">Nombre</string>
+    <string name="app_name">Feedit</string>
+    <string name="inscribir">Registrarse</string>
+    <string name="edad">Fecha de Publicacion</string>
+    <string name="datos_mascota">Registra tu post</string>
+
+    <string name="votos">Numero de votos</string>
+    <string name="descrip">Descripción</string>
+    <string name="datos_responsable">Acerca de ti</string>
+    <string name="nombre">Nombre Usuario</string>
     <string name="direccion">Dirección</string>
     <string name="email">Correo electronico</string>
     <string name="ciudad_departamento">Ciudad/Departamento</string>
     <string name="subir_foto">Sube una foto de tu mascota</string>
-    <string name="bienvenido">Hola, Bienvenido a Adottare</string>
+    <string name="bienvenido">Hola, Bienvenido a Feedit</string>
     <string name="caption">Aquí podras encontrar una mascota para ti!</string>
     <string name="pic">Nombre de la foto</string>
     <string name="contacto">Informacion de contacto</string>

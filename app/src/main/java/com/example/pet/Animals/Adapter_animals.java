@@ -34,8 +34,8 @@ public class Adapter_animals extends FirebaseRecyclerAdapter<Adatos_animals, Ada
     @Override
     protected void onBindViewHolder(final myviewholder myviewholder, final int i, final Adatos_animals adatos_animals) {
 
-            myviewholder.name.setText(adatos_animals.getNpet());
-            myviewholder.edad.setText(adatos_animals.getApet());
+            myviewholder.name.setText(adatos_animals.getApet());
+            myviewholder.edad.setText(adatos_animals.getNpet());
             Glide.with(myviewholder.img.getContext()).load(adatos_animals.getUrlimage()).into(myviewholder.img);
 
 
@@ -73,24 +73,7 @@ public class Adapter_animals extends FirebaseRecyclerAdapter<Adatos_animals, Ada
                     numper1.setText(adatos_animals.getNumcel());
                     Picasso.get().load(adatos_animals.getUrlimage()).into(image1);
 
-
-
-
-                    btn1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-
-                            Toast.makeText(myview.getContext(),"El numero es "+ adatos_animals.getNumcel(),Toast.LENGTH_LONG).show();
-
-                        }
-                    });
-
-                    bt2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                         Toast.makeText(myview.getContext(),"Aquí se te mandaría al correo",Toast.LENGTH_LONG).show();
-                        }
-                    });
+                    
                     dialog.show();
                 }
             });
